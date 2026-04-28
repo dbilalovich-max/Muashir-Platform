@@ -44,29 +44,42 @@ lang_choice = st.sidebar.radio("", ["العربية", "English", "中文"])
 lang = "AR" if lang_choice == "العربية" else ("EN" if lang_choice == "English" else "ZH")
 t = translations[lang]
 
-# 3. محرك الفلترة (الكلمات المفتاحية)
+# 3. محرك الفلترة الذكي (بعد تصحيح أولوية التخصصات وتوسيع القاموس)
 keywords = {
-    "med_ex": ["Surgery", "Pediatrics", "Obstetrics", "Internal Medicine"],
+    # تم توسيع قاموس البيطرة بكلمات بناءً على الفهارس الحقيقية
+    "vet_inc": ["Veterinary", "Animal", "Animals", "Zoonotic", "Dyce", "الطفيليات البيطرية", "Domestic", "Equine", "Poultry", "Livestock"],
+    
+    "med_ex": ["Surgery", "Pediatrics", "Obstetrics", "Internal Medicine", "Clinical"],
     "med_inc": ["Anatomy", "Physiology", "Pathology", "Biochemistry", "Pharmacology", "Histology"],
     "bio_inc": ["Biology", "Genetics", "Microbiology", "Ecology", "Biotechnology", "Cellular"],
-    "earth_inc": ["Geology", "Cosmology", "Tectonics", "Petrology", "Oceanography"],
-    "vet_inc": ["Veterinary", "Animal Anatomy", "Zoonotic", "Dyce", "الطفيليات البيطرية"]
+    "earth_inc": ["Geology", "Cosmology", "Tectonics", "Petrology", "Oceanography"]
 }
 
 def analyze_title(title):
     title_upper = str(title).upper()
-    for word in keywords["med_ex"]:
-        if word.upper() in title_upper: return "❌ Rejected (Clinical)", "-"
-    for word in keywords["med_inc"]:
-        if word.upper() in title_upper: return "✅ Accepted (Medical)", "Medicine"
-    for word in keywords["bio_inc"]:
-        if word.upper() in title_upper: return "✅ Accepted (Biology)", "Biology"
-    for word in keywords["earth_inc"]:
-        if word.upper() in title_upper: return "✅ Accepted (Earth)", "Earth Sciences"
+    
+    # 1. أولوية قصوى: فحص البيطرة أولاً (لمنع سحب كتبها للطب بسبب الكلمات المشتركة كالتشريح والأمراض)
     for word in keywords["vet_inc"]:
-        if word.upper() in title_upper: return "✅ Accepted (Vet)", "Veterinary"
-    return "⚪ Out of Scope", "-"
-
+        if word.upper() in title_upper: return t["dec_acc_vet"], t["vet_title"]
+        
+    # 2. فحص الاستبعاد السريري للطب البشري
+    for word in keywords["med_ex"]:
+        if word.upper() in title_upper: return t["dec_rej_clin"], "-"
+        
+    # 3. فحص الطب الأساسي البشري
+    for word in keywords["med_inc"]:
+        if word.upper() in title_upper: return t["dec_acc_med"], t["med_title"]
+        
+    # 4. فحص البيولوجيا وعلوم الطبيعة
+    for word in keywords["bio_inc"]:
+        if word.upper() in title_upper: return t["dec_acc_bio"], t["bio_title"]
+        
+    # 5. فحص علوم الأرض
+    for word in keywords["earth_inc"]:
+        if word.upper() in title_upper: return t["dec_acc_earth"], t["earth_title"]
+        
+    # 6. إذا لم يطابق أي شيء
+    return t["dec_out"], "-"
 # 4. واجهة المستخدم
 st.markdown(f"""<style>.main-header {{ background: linear-gradient(90deg, #001b3d 0%, #00cfb2 100%); color: white; padding: 20px; border-radius: 15px; text-align: center; direction: {t['dir']}; }}</style>""", unsafe_allow_html=True)
 st.markdown(f'<div class="main-header"><h1>{t["title"]}</h1><p>{t["subtitle"]}</p></div>', unsafe_allow_html=True)
