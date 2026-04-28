@@ -3,7 +3,7 @@ import pandas as pd
 import io
 
 # 1. إعدادات الهوية البصرية والتوقيع المائي (Watermark)
-st.set_page_config(page_title="منصة مؤشر - جامعة قالمة", layout="wide")
+st.set_page_config(page_title="منصة مؤشر - جامعة 8 ماي 1945 - قالمة", layout="wide")
 
 # حقن كود CSS المطور لتجميل الواجهة وإضافة التوقيع الشفاف في الخلفية
 st.markdown("""
@@ -30,7 +30,7 @@ st.markdown("""
             transform: translate(-50%, -50%) rotate(-25deg);
             font-size: 50px;
             font-weight: 700;
-            color: rgba(0, 43, 91, 0.05); /* لون كحلي شفاف جداً جداً 5% */
+            color: rgba(0, 43, 91, 0.05); /* لون كحلي شفاف جداً جداً 8% */
             white-space: nowrap;
             pointer-events: none;
             z-index: -100; /* خلف كل العناصر */
@@ -42,7 +42,7 @@ st.markdown("""
             position: fixed;
             bottom: 10px;
             left: 10px;
-            font-size: 14px;
+            font-size: 18px;
             color: rgba(0, 43, 91, 0.6);
             background-color: rgba(255, 255, 255, 0.8);
             padding: 5px 15px;
@@ -75,10 +75,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 2. رأس الصفحة
-st.markdown('<div class="main-header"><h1>منصة "مؤشر" للتحليل الذكي للفهارس</h1><p>كلية علوم الطبيعة والحياة والملاحق - جامعة 8 ماي 1945 قالمة</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header"><h1>منصة "مؤشر" للتحليل الذكي لفهارس العناوين</h1><p>مكتبة كلية علوم الطبيعة والحياة وعلوم الأرض والكون - جامعة 8 ماي 1945 قالمة</p></div>', unsafe_allow_html=True)
 
 # 3. التوقيع النصي الثابت في الأسفل
-st.markdown('<div class="personal-sig"><i class="fa-solid fa-code"></i> شريك النجاح: جلابي بلال</div>', unsafe_allow_html=True)
+st.markdown('<div class="personal-sig"><i class="fa-solid fa-code"></i>Created by DJELLABI BILAL</div>', unsafe_allow_html=True)
 
 # 4. محرك الفلترة (نفس المنطق السابق)
 keywords = {
