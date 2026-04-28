@@ -9,7 +9,7 @@ st.set_page_config(page_title="منصة مؤشر | Muashir Platform", layout="wi
 translations = {
     "AR": {
         "title": "📚 منصة \"مؤشر\" للتحليل الذكي للفهارس",
-        "subtitle": "المكتبة المركزية - جامعة 8 ماي 1945 قالمة",
+        "subtitle": "مكتبة الكلية - جامعة 8 ماي 1945 قالمة",
         "med_title": "الملحقة الطبية", "med_desc": "العلوم الأساسية",
         "bio_title": "علوم الطبيعة والحياة", "bio_desc": "البيولوجيا والبيئة",
         "earth_title": "علوم الأرض والكون", "earth_desc": "الجيولوجيا والفلك",
@@ -23,7 +23,7 @@ translations = {
         "report_title": "📊 تقرير الفلترة التفصيلي",
         "download_btn": "📥 تصدير النتائج بصيغة Excel",
         "error_msg": "تنبيه: لم يتم العثور على عمود باسم 'العنوان' أو 'Title'.",
-        "sig": "شريك النجاح: جلابي بلال",
+        "sig": "تصميم المنصة: جلابي بلال",
         "dir": "rtl",
         # نتائج الفلترة
         "dec_rej_clin": "مستبعد 🔴 (سريري)", "dec_acc_med": "قبول 🟢 (طب)",
@@ -32,7 +32,7 @@ translations = {
     },
     "EN": {
         "title": "📚 'Muashir' Smart Catalog Analysis Platform",
-        "subtitle": "Central Library - University of 8 Mai 1945 Guelma",
+        "subtitle": "Faculty Library - University of 8 Mai 1945 Guelma",
         "med_title": "Medical Annex", "med_desc": "Basic Sciences",
         "bio_title": "Nature & Life Sciences", "bio_desc": "Biology & Environment",
         "earth_title": "Earth & Universe Sciences", "earth_desc": "Geology & Astronomy",
@@ -46,7 +46,7 @@ translations = {
         "report_title": "📊 Detailed Filtering Report",
         "download_btn": "📥 Export Results as Excel",
         "error_msg": "Alert: Could not find a column named 'Title' or 'العنوان'.",
-        "sig": "Success Partner: Jellabi Bilal",
+        "sig": "Success Partner: DJELLABI Bilal",
         "dir": "ltr",
         # Filtering Results
         "dec_rej_clin": "Rejected 🔴 (Clinical)", "dec_acc_med": "Accepted 🟢 (Medicine)",
@@ -55,7 +55,7 @@ translations = {
     },
     "ZH": {
         "title": "📚 “Muashir” 智能书目分析平台",
-        "subtitle": "中央图书馆 - 1945年5月8日盖尔马大学",
+        "subtitle": "Faculty Library - University of 8 Mai 1945 Guelma",
         "med_title": "医学附属学院", "med_desc": "基础科学",
         "bio_title": "自然与生命科学", "bio_desc": "生物与环境",
         "earth_title": "地球与宇宙科学", "earth_desc": "地质与天文学",
@@ -69,7 +69,7 @@ translations = {
         "report_title": "📊 详细过滤报告",
         "download_btn": "📥 导出结果为Excel",
         "error_msg": "警告：找不到名为“Title”或“العنوان”的列。",
-        "sig": "成功合作伙伴：Jellabi Bilal",
+        "sig": "成功合作伙伴：DJELLABI Bilal",
         "dir": "ltr",
         # Filtering Results
         "dec_rej_clin": "拒绝 🔴 (临床)", "dec_acc_med": "接受 🟢 (医学)",
